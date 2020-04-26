@@ -1,0 +1,72 @@
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const node_cron = require("../jobs/index").main;
+const {createConnectionLowdb} = require('../microservice/lowdbConnection')
+const confi = require('../config/db.config');
+
+createConnectionLowdb()
+var corsOptions = {
+  origin: "http://localhost:4200"
+};
+
+
+
+
+app.use(cors(corsOptions));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// const PORT = process.env.PORT || 8080;
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}.`);
+//   node_cron()
+// });
+
+var server = app.listen(process.env.PORT || 8080, function () {
+ 
+  var host = server.address().address
+  var port = server.address().port
+  node_cron()
+  console.log("App listening at http://%s:%s", host, port)
+})
+// database
+const db = require("./models");
+const Role = db.role;
+
+db.sequelize.sync({force: true}).then(() => {
+  console.log('Drop and Resync with { force: true }');
+  initial();
+});
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Covid application." });
+});
+// routes microservice
+app.use(require('../microservice/routes/apiCovid.routes'))
+
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
+require('./routes/dataCountry.routes')(app);
+require('./routes/comment.routes')(app);
+require('./routes/comment.routes')(app);
+require('../jobs/router/nodeCron.routes')(app)
+// set port, listen for requests
+
+function initial() {
+  Role.create({
+    id: 1,
+    name: "user"
+  });
+ 
+  Role.create({
+    id: 2,
+    name: "moderator"
+  });
+ 
+  Role.create({
+    id: 3,
+    name: "admin"
+  });
+}

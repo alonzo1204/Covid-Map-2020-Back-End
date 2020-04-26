@@ -1,1 +1,11 @@
-Covid-Map 2020 Back-End
+## Created by Ceviche S.A.C
+
+## Project setup
+```
+npm install
+```
+
+### Run
+```
+npm start
+```
