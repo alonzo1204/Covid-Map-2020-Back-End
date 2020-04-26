@@ -20,10 +20,8 @@ module.exports = function(app) {
       next();
     });
     app.get('/nodeCron/consumerApiCovid',
-    (validaterNodeCron('0 0 10 * * *',controller.consumerApiCovid)) //8:00:00
-    //(validaterNodeCron('0 0 8 * * *',controller.consumnperApiCovid)) //8:00:00
-    )
+   controller.consumerApiCovid)
     app.get('/nodeCron/fillingDataCountries',
-    (validaterNodeCron('30 0 10 * * *',controller.fillingDataCountries))//8:00:30
-    )
+   controller.fillingDataCountries)
+    
   };

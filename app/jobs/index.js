@@ -10,7 +10,14 @@ async function jobsfillingDataCountries() {
 
 //started cronRoute
 module.exports.main = async function () {
-	console.log("started node-cron")
-    await jobsConsumerApiCovid()
-    await jobsfillingDataCountries()
+    console.log("started node-cron")
+       
+    setTimeout( async () => {
+        await jobsConsumerApiCovid()
+    }, 5000);
+    setTimeout( async () => {
+        await jobsfillingDataCountries()
+    }, 10000);
+ 
+
 }

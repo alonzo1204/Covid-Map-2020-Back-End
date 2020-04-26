@@ -15,6 +15,22 @@ const env = {
  
 module.exports = env;
 
+// const env = {
+//   database: 'testdb',
+//   username: 'postgres',
+//   password: '12345678',
+//   host: 'localhost',
+//   port: 5432,
+//   dialect: 'postgres',
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000
+//   }
+// };
+ 
+// module.exports = env;
 
 // module.exports = {
 //   HOST: "ec2-52-86-73-86.compute-1.amazonaws.com",
