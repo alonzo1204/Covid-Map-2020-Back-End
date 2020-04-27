@@ -12,6 +12,10 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
         
       },
+      continent: {
+        type: Sequelize.STRING
+        
+      },
       cases: {
         type: Sequelize.INTEGER
         

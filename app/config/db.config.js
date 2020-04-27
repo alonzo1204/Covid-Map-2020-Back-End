@@ -1,25 +1,8 @@
-const env = {
-  database: 'd8r2d73uoi7a0',
-  username: 'bdjtrlcafmylnk',
-  password: '30abe4d3499d520e36c3724e9274c3544eb6486f31070e6eae6d5390bc00fbfe',
-  host: 'ec2-18-215-99-63.compute-1.amazonaws.com',
-  port: 5432,
-  dialect: 'postgres',
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  }
-};
- 
-module.exports = env;
-
 // const env = {
-//   database: 'testdb',
-//   username: 'postgres',
-//   password: '12345678',
-//   host: 'localhost',
+//   database: 'd8r2d73uoi7a0',
+//   username: 'bdjtrlcafmylnk',
+//   password: '30abe4d3499d520e36c3724e9274c3544eb6486f31070e6eae6d5390bc00fbfe',
+//   host: 'ec2-18-215-99-63.compute-1.amazonaws.com',
 //   port: 5432,
 //   dialect: 'postgres',
 //   pool: {
@@ -31,6 +14,23 @@ module.exports = env;
 // };
  
 // module.exports = env;
+
+const env = {
+  database: 'testdb',
+  username: 'postgres',
+  password: '12345678',
+  host: 'localhost',
+  port: 5432,
+  dialect: 'postgres',
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
+};
+ 
+module.exports = env;
 
 // module.exports = {
 //   HOST: "ec2-52-86-73-86.compute-1.amazonaws.com",

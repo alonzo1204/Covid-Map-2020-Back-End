@@ -150,6 +150,7 @@ exports.getDataCountriesTreeGrid = (req, res) => {
         // data.createdAt = iterator.createdAt
         // response.push({data})
         data.name = iterator.country,
+        data.continent = iterator.continent,
         data.cases = iterator.cases,
         data.active = iterator.active,
         data.critical = iterator.critical,
