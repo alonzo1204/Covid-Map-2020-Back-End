@@ -19,15 +19,14 @@ const {dataCountry} = require('../dataCountries')
    return res
 }
 const consumerApiCovid = async (req,res) => {
-    await getConnection().set('data',[]).write() 
-    //setea la data de nuestro lowwdb
+    await getConnection().set('data',[]).write() //setea la data de nuestro lowwdb
     const api = await apiCovid()
     for (const i of api) {
         //agrega la nueva data del api
         await getConnection().get('data').push(i).write()      
     }
     console.log("consumerApiCovid ", new Date)
-    res.json({"consumerApiCovid":"successful"})
+    res.end({"consumerApiCovid":"successful"})
 }
 const fillingDataCountries = async (req,res) => {
    // await consumerCoviMap(false,"dataCountries","DELETE") 
@@ -42,7 +41,7 @@ const fillingDataCountries = async (req,res) => {
       }     
     }
     console.log("fillingDataCountries ", new Date)
-    res.json({"fillingDataCountries":"successful"})
+    res.end({"fillingDataCountries":"successful"})
 }
 module.exports = {
     consumerApiCovid,
