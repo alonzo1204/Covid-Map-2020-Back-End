@@ -60,14 +60,7 @@ module.exports = (sequelize, Sequelize) => {
       testsPerOneMillion: {
         type: Sequelize.INTEGER
         
-      },  
-      idComment: {
-        type: Sequelize.INTEGER,
-        references: {
-        model: 'comments',//name of bd
-        key: 'id'
-        }
-      },   
+      },     
       latitude:{
         type: Sequelize.STRING
       },

@@ -7,7 +7,7 @@ async function jobsConsumerApiCovid() {
 async function jobsfillingDataCountries() {
     return await consumerNodeCron("fillingDataCountries")
 }
-//Para correr las func al momento de iniciar el back
+//Para correr las func al momento de iniciar el nodecron
 //started cronRoute
 module.exports.main = async function () {
 	console.log("started node-cron")

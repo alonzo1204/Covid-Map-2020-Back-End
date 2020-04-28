@@ -149,17 +149,17 @@ exports.getDataCountriesTreeGrid = (req, res) => {
         // data.todayDeaths = iterator.todayDeaths,
         // data.createdAt = iterator.createdAt
         // response.push({data})
-        data.name = iterator.country,
-        data.continent = iterator.continent,
-        data.cases = iterator.cases,
-        data.active = iterator.active,
-        data.critical = iterator.critical,
-        data.recovered = iterator.recovered,
-        data.deaths = iterator.deaths,
-        data.totalTests = iterator.totalTests,
-        data.todayCases = iterator.todayCases,
-        data.todayDeaths = iterator.todayDeaths,
-        data.createdAt = iterator.createdAt
+        data.Pais = iterator.country,
+        data.Continente = iterator.continent,
+        data.Casos = iterator.cases,
+        data.Enfermos = iterator.active,
+        data.Casos_Criticos = iterator.critical,
+        data.Recuperados = iterator.recovered,
+        data.Fallecidos = iterator.deaths,
+        data.Muestras_Tomadas = iterator.totalTests,
+        data.Casos_Recientes = iterator.todayCases,
+        data.Muertes_Recientes = iterator.todayDeaths,
+        data.Fecha = iterator.createdAt
         response.push({data})
                 
        }

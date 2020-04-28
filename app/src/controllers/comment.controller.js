@@ -24,6 +24,19 @@ exports.getCommentsById = (req, res) => {
     });
 };
 
+exports.getCommentsByIdDataCountry = (req, res) => {
+  Comment.findAll({
+    where: {
+      idDataCountry: req.params.idDataCountry
+    }
+  }) .then(Comment => {
+        res.status(200).send(Comment);
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message });
+    });
+};
+
 exports.postComments = (req, res) => {
   Comment.create({
 

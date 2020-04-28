@@ -35,10 +35,14 @@ var server = app.listen(process.env.PORT || 8080, function () {
 const db = require("./models");
 const Role = db.role;
 
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync with { force: true }');
-  initial();
-});
+
+db.sequelize.sync();
+
+//elimina la data antigua
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('Drop and Resync with { force: true }');
+//   initial();
+// });
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Covid application." });

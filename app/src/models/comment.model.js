@@ -5,15 +5,24 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement:true,
         primaryKey: true
       },
-
+      idDataCountry: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'dataCountries',//name of bd
+          key: 'id',
+        }
+      },
+      idUsername: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',//name of bd
+          key: 'id',
+        }
+      },
       comment : {
         type: Sequelize.STRING
         
-      },
-      date : {
-        type: Sequelize.DATE
-        
-      },
+      }
     });
   
     return Comment;
