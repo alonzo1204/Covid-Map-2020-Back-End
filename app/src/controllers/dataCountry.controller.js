@@ -27,21 +27,7 @@ exports.getDataCountriesById = (req, res) => {
 //fijate aca nada mas
 exports.postDataCountries = (req, res) => {
       DataCountry.create(req.body
-        /*{        
-      country: req.body.country,
-      cases: req.body.cases,
-      todayCases:req.body.todayCases,
-      deaths:req.body.deaths,
-      todayDeaths:req.body.todayDeaths,
-      recovered:req.body.recovered,
-      active:req.body.active,
-      critical:req.body.critical,
-      casesPerOneMillion: req.body.casesPerOneMillion,
-      deathsPerOneMillion: req.body.deathsPerOneMillion,
-      totaltest:req.body.totaltest,
-      testsPerOneMillion: req.body.testsPerOneMillion,
-      idComment: req.body.idComment,
-    }*/
+
     ) .then(Datacountry => {
           res.status(200).send(Datacountry);
       })
@@ -92,22 +78,7 @@ exports.truncateDataCountries = (req, res) => {
 };
 
 exports.getDataCountriesFormatMap = (req, res) => {
-  // let start = moment().startOf('day').format()
-  // let end = moment().endOf('day').format()
-  // console.log({
-  //   start,
-  //   end
-  // })
-  // DataCountry.findAll(
-  //  {
-  //   createdAt: {
-  //     type: DataTypes.DATEONLY,
-  //     get: function() {
-  //       return moment.utc(this.getDataValue('createdAt')).format('YYYY-MM-DD');
-  //     }
-  //   }
-  // }
-  // )
+
   DataCountry.findAll()
     .then(detailCountry => {
       let response = {}
@@ -141,14 +112,6 @@ exports.getDataCountriesTreeGrid = (req, res) => {
        for (const iterator of detailCountry) {        
   
           let data = {}
-        // data.name = iterator.codeCountry,
-        // data.country = iterator.country,
-        // data.cases = iterator.cases,
-        // data.todayCases = iterator.todayCases,
-        // data.deaths = iterator.deaths,
-        // data.todayDeaths = iterator.todayDeaths,
-        // data.createdAt = iterator.createdAt
-        // response.push({data})
         data.Pais = iterator.country,
         data.Continente = iterator.continent,
         data.Casos = iterator.cases,

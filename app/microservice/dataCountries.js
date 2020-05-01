@@ -657,7 +657,7 @@ exports.dataCountry = [
         "country": "Diamond Princess",
         "latitude": "44",
         "longitude": "30",
-        "continent": "Europa"
+        "continent": "Europe"
     },
     {
         "codeCountry": "LB",
@@ -1222,7 +1222,7 @@ exports.dataCountry = [
         "country": "Vatican City",
         "latitude": "41.906487",
         "longitude": "12.453641",
-        "continent": "Europa"
+        "continent": "Europe"
     },
 
     {

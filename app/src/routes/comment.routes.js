@@ -1,6 +1,7 @@
 const { authJwt } = require("../middleware");
 const controller = require("../controllers/comment.controller");
 
+
 module.exports = function(app) {
   app.use(function(req, res, next) {
     res.header(
@@ -13,9 +14,10 @@ module.exports = function(app) {
 
   app.get("/api/test/comments", controller.getComments);
   app.get("/api/test/comments/:id", controller.getCommentsById);
-  app.get("/api/test/comments/:idDataCountry", controller.getCommentsByIdDataCountry);
+  app.get("/api/test/commentsByDataCountry/:idDataCountry", controller.getCommentsByIdDataCountry);
   app.post("/api/test/comments", controller.postComments);
   app.put("/api/test/comments/:id", controller.putComments);
   app.delete("/api/test/comments/:id", controller.deleteComments);
 
 };
+

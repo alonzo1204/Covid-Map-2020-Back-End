@@ -19,6 +19,9 @@ module.exports = (sequelize, Sequelize) => {
           key: 'id',
         }
       },
+      username: {
+        type: Sequelize.STRING
+      },
       comment : {
         type: Sequelize.STRING
         

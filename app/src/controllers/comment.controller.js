@@ -38,13 +38,9 @@ exports.getCommentsByIdDataCountry = (req, res) => {
 };
 
 exports.postComments = (req, res) => {
-  Comment.create({
+  Comment.create(req.body
 
-  comment: req.body.comment,
-  date: req.body.date,
-
-
-}) .then(Comment => {
+) .then(Comment => {
       res.status(200).send(Comment);
   })
   .catch(err => {
