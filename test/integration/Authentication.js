@@ -32,16 +32,16 @@ describe('Log in: ',()=>{
 //https://www.freecodecamp.org/news/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52/
 
 
-//describe('Obtain personal data without authToken: ',()=>{
-//
-//	it('should receive an error because we need authToken', (done) => {
-//		agent
-//			.get('/personalData/user')
-//      		.then(function (res) {
-//         		expect(res).to.have.status(500);
-//         		console.log(res.body)
-//      	});
-//		done();
-//	});
-//
-//});
+describe('Obtain personal data without authToken: ',()=>{
+
+	it('should receive an error because we need authToken', (done) => {
+		agent
+			.get('/personalData/user')
+      		.then(function (res) {
+         		expect(res).to.have.status(500);
+         		console.log(res.body)
+      	});
+		done();
+	});
+
+});
