@@ -2,7 +2,7 @@
 
 
 const env = {
-  database: 'testdb2',
+  database: 'testdb',
   username: 'postgres',
   password: 'admin',
   host: 'localhost',

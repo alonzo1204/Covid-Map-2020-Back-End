@@ -15,8 +15,8 @@ describe('Log in: ',()=>{
 		chai.request(url)
             .post('/signin')
             .send({
-				username :"jose",
-				password: "jose123"
+				username :"admin",
+				password: "admin123"
 			})
 			.end( function(err,res){
                 console.log(res.body)

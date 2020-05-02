@@ -40,7 +40,7 @@ describe('Insert a country: ',()=>{
 		chai.request(url)
             .post('/dataCountries')
             .send({
-                id: 213, 
+                id: 913, 
                 codeCountry: 'EC',
                 country: 'Test Country',
                 continent: 'Test Continent',
@@ -70,9 +70,9 @@ describe('Insert a country: ',()=>{
 describe('Update the cases of a country: ',()=>{
 	it('should update the case the country with the Id 213', (done) => {
 		chai.request(url)
-            .put('/dataCountries/213')
+            .put('/dataCountries/913')
             .send({
-                    id: 213, 
+                    id: 913, 
                     codeCountry: 'EC',
                     country: 'Test Country',
                     continent: 'Test Continent',
@@ -102,7 +102,7 @@ describe('Update the cases of a country: ',()=>{
 describe('Delete country by Id: ',()=>{
 	it('should delete a country by its Id', (done) => {
 		chai.request(url)
-            .delete('/dataCountries/213')
+            .delete('/dataCountries/913')
 			.end( function(err,res){
                 console.log(res.body)
 				expect(res).to.have.status(200);
