@@ -137,29 +137,29 @@ describe('Get Tree Grid of dataCountries: ',()=>{
     });
 });
 
-//////  TRUNCATE ----- DELETES ALL DATACOUNTRIES
-// describe('Truncate countries: ',()=>{
-// 	it('should delete every country', (done) => {
-// 		chai.request(url)
-//             .delete('/dataCountries')
-// 			.end( function(err,res){
-//                 console.log(res.body)
-// 				expect(res).to.have.status(200);
-// 				done();
-// 			});
-//     });
-// });
+// //////  TRUNCATE ----- DELETES ALL DATACOUNTRIES
+// // describe('Truncate countries: ',()=>{
+// // 	it('should delete every country', (done) => {
+// // 		chai.request(url)
+// //             .delete('/dataCountries')
+// // 			.end( function(err,res){
+// //                 console.log(res.body)
+// // 				expect(res).to.have.status(200);
+// // 				done();
+// // 			});
+// //     });
+// // });
 
-// describe('get country by Id: ',()=>{
-// 	it('should get a country by Id', (done) => {
-// 		chai.request(url)
-//             .get('/dataCountries/213')
-// 			.end( function(err,res){
-//                 console.log(res.body)
-// 				expect(res).to.have.status(200);
-// 				done();
-// 			});
-//     });
-// });
+describe('get country by Id: ',()=>{
+	it('should get a country by Id', (done) => {
+		chai.request(url)
+            .get('/dataCountries/913')
+			.end( function(err,res){
+                console.log(res.body)
+				expect(res).to.have.status(200);
+				done();
+			});
+    });
+});
 
 
