@@ -1,53 +1,19 @@
-'use stricts'
-// start with mocha
-let chai = require('chai');
-let chaiHttp = require('chai-http');
-const expect = require('chai').expect;
-chai.use(chaiHttp);
-const url= 'http://localhost:8080/api/test';
-const tools = require("../test/tools")
+const fs = require("fs");
+const path = require("path");
+const mocha = require("mocha");
+const suite = new mocha();
 
-// describe('Insert a country: ',()=>{
+// comando: npm test 
+// para que corra los tests en el folder "integration"
+fs.readdir(path.join(__dirname, "integration"), (err, files) => {
+	if (err) throw err;
 
-// 	it('should insert a country', (done) => {
-// 		chai.request(url)
-// 			.post('/comments')
-//             //.send({id:0, country: "Croacia", year: 2017, days: 10})
-//             .send({ idDataCountry: 7, idUsername: 1,username: "victor",  comment: "prueba mocha"})
-// 			.end( function(err,res){
-// 				console.log(res.body)
-// 				expect(res).to.have.status(200);
-// 				done();
-// 			});
-// 	});
-// });
+	files.filter((filename) =>
+	(filename.match(/\.js$/))).map((filename) => {
+		suite.addFile(path.join(__dirname, "integration", filename));
+	});
 
-describe('get all comments: ',()=>{
-
-	it('should get all countries', (done) => {
-		chai.request(url)
-            .get('/comments')
-			.end( function(err,res){
-				console.log(res.body)
-				expect(res).to.have.status(200);
-				done();
-			});
-    });
-
-
-});
-describe('get all countries: ',()=>{
-
-	it('should get all countries', (done) => {
-		chai.request(url)
-            .get('/dataCountries')
-			.end( function(err,res){
-				console.log(res.body)
-				expect(res).to.have.status(200);
-				done();
-			});
-    });
-
-
-});
-
+	suite.run((failures) => {
+		process.exit(failures);
+	});	
+})

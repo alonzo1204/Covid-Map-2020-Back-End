@@ -4,7 +4,7 @@
 const env = {
   database: 'testdb',
   username: 'postgres',
-  password: '12345678',
+  password: 'admin',
   host: 'localhost',
   port: 5432,
   dialect: 'postgres',

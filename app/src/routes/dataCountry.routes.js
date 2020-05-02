@@ -10,13 +10,13 @@ module.exports = function(app) {
     next();
   });
 
-  app.get("/api/test/dataCountries", controller.getDataCountries);
-  app.get("/api/test/getDataCountriesFormatMap", controller.getDataCountriesFormatMap);
-  app.get("/api/test/getDataCountriesTreeGrid", controller.getDataCountriesTreeGrid);
-  app.get("/api/test/dataCountries/:id", controller.getDataCountriesById);
-  app.post("/api/test/dataCountries", controller.postDataCountries);
-  app.put("/api/test/dataCountries/:id", controller.putDataCountries);
-  app.delete("/api/test/dataCountries", controller.truncateDataCountries);
-  app.delete("/api/test/dataCountries/:id", controller.deleteDataCountries);
+  app.get("/api/test/dataCountries", controller.getDataCountries); //ya
+  app.get("/api/test/getDataCountriesFormatMap", controller.getDataCountriesFormatMap);//ya
+  app.get("/api/test/getDataCountriesTreeGrid", controller.getDataCountriesTreeGrid);//ya
+  app.get("/api/test/dataCountries/:id", controller.getDataCountriesById); //ya
+  app.post("/api/test/dataCountries", controller.postDataCountries); //ya
+  app.put("/api/test/dataCountries/:id", controller.putDataCountries);//ya
+  app.delete("/api/test/dataCountries", controller.truncateDataCountries);//
+  app.delete("/api/test/dataCountries/:id", controller.deleteDataCountries);//ya
  
 };
