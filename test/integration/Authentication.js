@@ -5,34 +5,27 @@ let chai = require('chai');
 let chaiHttp = require('chai-http');
 const expect = require('chai').expect;
 chai.use(chaiHttp);
-const url= 'http://localhost:8080/api/test';
-const tools = require("../tools")
+const url = 'http://localhost:8080/api/auth';
+const tools = require("../tools");
 //
-var agent = chai.request.agent(url)
+var agent = chai.request.agent(url);
 
-
-//############# Comprobnacion de Token en Cookie ##############
-describe('Authenticate a user: ',()=>{
-
-	it('should receive an OK and a cookie with the authentication token', (done) => {
-		agent
-			.get('/authentication')
-  			.auth('user', 'password')
+describe('Log in: ',()=>{
+	it('Log In', (done) => {
+		chai.request(url)
+            .post('/signin')
+            .send({
+				username :"jose",
+				password: "jose123"
+			})
 			.end( function(err,res){
-				console.log(res.body)
-				expect(res).to.have.cookie('authToken');
+                console.log(res.body)
 				expect(res).to.have.status(200);
-				return agent.get('/personalData/user')
-      			.then(function (res) {
-         			expect(res).to.have.status(200);
-         			console.log(res.body)
-         			done();
-      			});
 				done();
 			});
-	});
-
+    });
 });
+
 
 
 //https://www.youtube.com/watch?time_continue=560&v=7nafaH9SddU&feature=emb_title

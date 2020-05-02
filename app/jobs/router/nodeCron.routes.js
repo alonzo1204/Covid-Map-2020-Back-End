@@ -26,6 +26,6 @@ module.exports = function(app) {
 
     //Descomentar para que se ejecute a la hora indicada
     app.get('/nodeCron/consumerApiCovid',(validaterNodeCron('0 30 00 * * *',controller.consumerApiCovid)))
-    app.get('/nodeCron/fillingDataCountries',(validaterNodeCron('00 08 23 * * *',controller.fillingDataCountries)))
+    app.get('/nodeCron/fillingDataCountries',(validaterNodeCron('00 46 15 * * *',controller.fillingDataCountries)))
     
   };
