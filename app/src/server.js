@@ -7,9 +7,20 @@ const {createConnectionLowdb} = require('../microservice/lowdbConnection')
 const confi = require('../config/db.config');
 
 createConnectionLowdb()
+
+var myList = ['https://covid-map-2020-front-end.herokuapp.com', 'http://localhost:4200']
 var corsOptions = {
-  origin: "http://localhost:4200"
-};
+  origin: function (origin, callback) {
+    if (myList.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+// var corsOptions = {
+//   origin: "https://covid-map-2020-front-end.herokuapp.com"
+// };
 
 
 
