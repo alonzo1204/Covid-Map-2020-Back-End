@@ -1,6 +1,9 @@
 const db = require("../models");
 const DataCountry = db.dataCountry;
 const moment = require("moment")
+const _ = require('lodash')
+
+const arrayContinent = ['Asia', 'Europe', 'Oceania', 'North America', 'South America','Africa']
 
 exports.getDataCountries = (req, res) => {
     DataCountry.findAll()
@@ -133,3 +136,25 @@ exports.getDataCountriesTreeGrid = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+exports.getCountriesByContinent = (req,res)=> {
+  DataCountry.findAll()
+  .then(async detailCountry => {
+    let reponse = {}
+    reponse.header = arrayContinent
+    reponse.body = []
+    for (let i of arrayContinent){
+      let groupByContent = await DataCountry.findAll({
+        where: {
+          continent: i
+        }
+      })
+      let cases = groupByContent.reduce((sum, value) => (typeof value.dataValues.cases == "number" ? sum + value.dataValues.cases : sum), 0);
+      let body = {value:cases,name:i}
+      reponse.body.push(body)
+    }
+    res.status(200).send(reponse);
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+}
