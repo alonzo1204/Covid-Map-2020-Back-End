@@ -20,12 +20,12 @@ module.exports = function(app) {
       next();
     });
     //Descomentar para que se ejecute al inciciar el back
-    //app.get('/nodeCron/consumerApiCovid',controller.consumerApiCovid)
-   // app.get('/nodeCron/fillingDataCountries',controller.fillingDataCountries)
+    // app.get('/nodeCron/consumerApiCovid',controller.consumerApiCovid)
+    // app.get('/nodeCron/fillingDataCountries',controller.fillingDataCountries)
 
 
     //Descomentar para que se ejecute a la hora indicada
-    app.get('/nodeCron/consumerApiCovid',(validaterNodeCron('0 34 16 * * *',controller.consumerApiCovid)))
-    app.get('/nodeCron/fillingDataCountries',(validaterNodeCron('00 34 16 * * *',controller.fillingDataCountries)))
+    app.get('/nodeCron/consumerApiCovid',(validaterNodeCron('00 54 14 * * *',controller.consumerApiCovid)))
+    app.get('/nodeCron/fillingDataCountries',(validaterNodeCron('30 54 14 * * *',controller.fillingDataCountries)))
     
   };
