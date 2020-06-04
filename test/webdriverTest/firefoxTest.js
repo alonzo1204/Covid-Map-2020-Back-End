@@ -148,6 +148,6 @@ async function countriesTableTest() {
 //loginTest();
 //registerTest();
 //logoutTest();
-selectCountryTest();
+//selectCountryTest();
 //postCommentTest();
 //countriesTableTest();
