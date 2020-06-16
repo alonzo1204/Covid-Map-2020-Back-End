@@ -8,8 +8,11 @@ const confi = require('../config/db.config');
 
 createConnectionLowdb()
 
-var myList = ['https://covid-map-2020-front-end.herokuapp.com', 'http://localhost:4200']
-// var corsOptions = {
+// var myList = ['https://covid-map-2020-front-end.herokuapp.com', 'http://localhost:4200']
+
+//  var corsOptions = {
+
+
 //   origin: function (origin, callback) {
 //     if (myList.indexOf(origin) !== -1) {
 //       callback(null, true)
@@ -18,14 +21,25 @@ var myList = ['https://covid-map-2020-front-end.herokuapp.com', 'http://localhos
 //     }
 //   }
 // }
-var corsOptions = {
-  origin: "http://localhost:4200"
-};
+
+var whitelist = ['https://covid-map-2020-front-end.herokuapp.com', 'http://localhost:4200']
+var corsOptionsDelegate = function (req, callback) {
+  var corsOptions;
+  if (whitelist.indexOf(req.header('Origin')) !== -1) {
+    corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false } // disable CORS for this request
+  }
+  callback(null, corsOptions) // callback expects two parameters: error and options
+}
 
 
+// var corsOptions = {
+//   origin: "https://covid-map-2020-front-end.herokuapp.com"
+// };
 
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptionsDelegate));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
