@@ -15,6 +15,7 @@ module.exports = function(app) {
   app.get("/api/test/getDataCountriesTreeGrid", controller.getDataCountriesTreeGrid);//ya
   app.get("/api/test/dataCountries/:id", controller.getDataCountriesById); //ya
   app.get("/api/test/getCountriesByContinent", controller.getCountriesByContinent);
+  app.get("/api/test/getTopFiveCountries", controller.getTopFiveCountries);
   app.post("/api/test/dataCountries", controller.postDataCountries); //ya
   app.put("/api/test/dataCountries/:id", controller.putDataCountries);//ya
   app.delete("/api/test/dataCountries", controller.truncateDataCountries);//

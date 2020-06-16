@@ -149,10 +149,30 @@ exports.getCountriesByContinent = (req,res)=> {
         }
       })
       let cases = groupByContent.reduce((sum, value) => (typeof value.dataValues.cases == "number" ? sum + value.dataValues.cases : sum), 0);
-      let body = {value:cases,name:i}
+      let body = {cases:cases,name:i}
       reponse.body.push(body)
     }
     res.status(200).send(reponse);
+  })
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+}
+exports.getTopFiveCountries = (req, res) => {
+  DataCountry.findAll()
+  .then(detailCountry => {
+    let response = []
+    c = 0
+    for (const iterator of detailCountry) { 
+      let data = {}
+      data.Pais = iterator.country,
+      data.Casos = iterator.cases
+      if (c > 0 && c <6){
+        response.push({data})
+      }
+      c = c + 1
+    }
+    res.status(200).send({response:response});
   })
   .catch(err => {
     res.status(500).send({ message: err.message });
